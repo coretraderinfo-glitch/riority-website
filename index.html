@@ -1597,66 +1597,100 @@
     .branch-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3px;
+      gap: 30px;
       margin-top: 60px;
-      background: rgba(201, 150, 12, .08);
     }
 
     .branch-card {
-      background: var(--offwhite);
+      background: var(--card-bg, var(--charcoal));
+      background-size: cover;
+      background-position: center;
       padding: 52px 48px;
       position: relative;
       overflow: hidden;
-      transition: all .4s;
-      border-bottom: 3px solid transparent;
+      transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 12px;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .branch-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 15, 15, 0.98) 0%, rgba(15, 15, 15, 0.6) 50%, rgba(15, 15, 15, 0.2) 100%);
+      z-index: 1;
+      transition: all .4s ease;
+    }
+
+    .branch-card:hover::before {
+      background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.4) 50%, rgba(15, 15, 15, 0.05) 100%);
     }
 
     .branch-card:hover {
-      background: var(--goldlight);
-      border-bottom-color: var(--gold);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .branch-card > * {
+      position: relative;
+      z-index: 2;
     }
 
     .branch-flag {
       position: absolute;
       top: 0;
       right: 0;
-      background: var(--charcoal);
-      color: var(--gold2);
-      font-size: 8px;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: 10px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       font-weight: 700;
-      padding: 8px 16px;
+      padding: 10px 20px;
+      border-bottom-left-radius: 12px;
+      z-index: 3;
     }
 
     .branch-bg-num {
       position: absolute;
-      bottom: 10px;
-      right: 24px;
+      top: 24px;
+      left: 24px;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 90px;
-      color: rgba(201, 150, 12, .06);
+      font-size: 120px;
+      color: rgba(255, 255, 255, 0.05);
       line-height: 1;
+      z-index: 2;
+      transition: all .4s;
+    }
+    
+    .branch-card:hover .branch-bg-num {
+      color: rgba(201, 150, 12, 0.15);
+      transform: scale(1.05) translateX(10px);
     }
 
     .branch-card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
+      font-size: 40px;
       font-weight: 700;
       color: var(--gold);
       margin-bottom: 12px;
     }
 
     .branch-addr {
-      font-size: 14px;
-      color: var(--midgray);
-      line-height: 1.85;
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
       font-weight: 300;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .branch-addr strong {
-      color: var(--charcoal);
+      color: var(--offwhite);
       font-weight: 500;
     }
 
@@ -1664,17 +1698,22 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .stars {
       color: var(--gold);
-      font-size: 15px;
-      letter-spacing: 1px;
+      font-size: 18px;
+      letter-spacing: 2px;
     }
 
     .rtext {
-      font-size: 12px;
-      color: var(--midgray);
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* ══════════════════════════════
@@ -3655,7 +3694,7 @@
     <div class="sec-label"><span>Franchise · Anytime Fitness</span></div>
     <div class="sec-title reveal">Our <span class="italic gold">Fitness</span> Locations</div>
     <div class="branch-grid reveal reveal-d1">
-      <div class="branch-card">
+      <div class="branch-card" style="--card-bg: url('https://upload.wikimedia.org/wikipedia/commons/b/b7/Anytime_Fitness_City_Square_Mall%2C_Singapore_-_20240428_-_RSKY.jpg');">
         <div class="branch-flag">Open 24 Hours</div>
         <div class="branch-bg-num">01</div>
         <h3>Jalan Ampang, KL</h3>
@@ -3666,7 +3705,7 @@
           <span class="rtext">4.5 · 82 Google Reviews</span>
         </div>
       </div>
-      <div class="branch-card">
+      <div class="branch-card" style="--card-bg: url('https://upload.wikimedia.org/wikipedia/commons/1/1e/ANYTIME_FITNESS_NARA_TOMIGAOKA_GYM.jpg');">
         <div class="branch-flag">Open 24 Hours</div>
         <div class="branch-bg-num">02</div>
         <h3>Sunway Geo, Selangor</h3>
