@@ -1520,18 +1520,22 @@
     .award-trio {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 3px;
-      background: rgba(201, 150, 12, .06);
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .award-badge-card {
-      background: var(--offwhite);
-      padding: 36px 32px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(201, 150, 12, 0.2);
+      border-radius: 12px;
+      padding: 40px 32px;
       text-align: center;
       position: relative;
       overflow: hidden;
-      transition: all .3s;
+      transition: all .4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
 
     .award-badge-card::before {
@@ -1545,15 +1549,31 @@
     }
 
     .award-badge-card:hover {
-      background: var(--goldlight);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 50px rgba(201, 150, 12, .15);
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(201, 150, 12, 0.15);
+      border-color: rgba(201, 150, 12, 0.5);
     }
 
     .award-badge-icon {
-      font-size: 32px;
-      margin-bottom: 14px;
-      display: block;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .award-badge-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--gold);
+      fill: rgba(201, 150, 12, 0.1);
+      transition: all 0.4s ease;
+    }
+    
+    .award-badge-card:hover .award-badge-icon svg {
+      stroke: var(--gold2);
+      transform: scale(1.1);
+      fill: rgba(201, 150, 12, 0.2);
     }
 
     .award-badge-title {
@@ -3595,17 +3615,35 @@
     </div>
     <div class="award-trio reveal reveal-d3">
       <div class="award-badge-card">
-        <span class="award-badge-icon">🏆</span>
+        <div class="award-badge-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+            <path d="M4 22h16"/>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+          </svg>
+        </div>
         <div class="award-badge-title">Asia Top 100 Brand</div>
         <div class="award-badge-sub">Asia Honesty Awards · 2022</div>
       </div>
       <div class="award-badge-card">
-        <span class="award-badge-icon">🥇</span>
+        <div class="award-badge-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
         <div class="award-badge-title">Asia Honesty Product</div>
         <div class="award-badge-sub">Asia Honesty Awards · 2022</div>
       </div>
       <div class="award-badge-card">
-        <span class="award-badge-icon">🌟</span>
+        <div class="award-badge-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
         <div class="award-badge-title">Asia Honesty Enterprise</div>
         <div class="award-badge-sub">Asia Honesty Awards · 2022</div>
       </div>
@@ -3839,8 +3877,7 @@
           <div class="c-icon">✉️</div>
           <div>
             <div class="c-lbl">Email Address</div>
-            <div class="c-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                data-cfemail="b3c1dadcc1dac7caded2c1d8d6c7daddd4f3d4ded2dadf9dd0dcde">[email&#160;protected]</a></div>
+            <div class="c-val"><a href="mailto:info@rioritygroup.com" style="color:var(--text);text-decoration:none;">info@rioritygroup.com</a></div>
           </div>
         </div>
         <div class="c-item">
@@ -3923,10 +3960,7 @@
           <h4>Contact</h4>
           <ul>
             <li><a href="tel:+60380800711">+6 03-8080 0711</a></li>
-            <li><a href="/cdn-cgi/l/email-protection#8efce7e1fce7faf7e3effce5ebfae7e0e9cee9e3efe7e2a0ede1e3"><span
-                  class="__cf_email__"
-                  data-cfemail="2153484e534855584c40534a4455484f4661464c40484d0f424e4c">[email&#160;protected]</span></a>
-            </li>
+            <li><a href="mailto:info@rioritygroup.com">info@rioritygroup.com</a></li>
             <li>Puchong, Selangor</li>
           </ul>
         </div>
